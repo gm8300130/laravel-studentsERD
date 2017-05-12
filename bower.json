@@ -1,0 +1,27 @@
+{
+  "name": "student_erd",
+  "dependencies": {
+    "animate.css": "*",
+    "autosize": "~3.0.4",
+    "bootstrap-datepicker": "1.4.0",
+    "bootstrap-sass": "~3.3.4",
+    "imagesloaded": "~3.1.8",
+    "jquery": "~2.1.3",
+    "jquery-twzipcode": "https://github.com/essoduke/jQuery-TWzipcode.git#545539a",
+    "jquery-validation": "~1.13.1",
+    "jquery-validation-bootstrap-tooltip": "*",
+    "layzr.js": "~1.4.0",
+    "lazyloadxt": "~1.0.5",
+    "metisMenu": "~1.1.3",
+    "tinymce": "",
+    "chosen": "1.5.1",
+    "jqueryui-timepicker-addon": "1.6.0",
+    "jquery-ui": "#1.11.4",
+    "datatables": "~1.9.0",
+    "datatables-bootstrap3-plugin": "*",
+    "bootstrap-multiselect": "^0.9.13"
+  },
+  "resolutions": {
+    "jquery": ">= 1.11.2"
+  }
+}
