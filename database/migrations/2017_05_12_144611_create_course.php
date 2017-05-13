@@ -15,12 +15,10 @@ class CreateCourse extends Migration
     {
         Schema::create('course', function ($table) {
             $table->engine = 'InnoDB';
-            $table->integer('id')->comment('流水編號');
+            $table->increments('id')->comment('流水編號');
             $table->string('name', 60)->comment('專案中文或英文名稱');
             $table->date('createDate')->comment('建立日期');
             $table->string('remark', 100)->nullable()->comment('備註');
-            
-            $table->primary('id');
         });
     }
     

@@ -15,13 +15,11 @@ class CreateStudent extends Migration
     {
         Schema::create('student', function ($table) {
             $table->engine = 'InnoDB';
-            $table->integer('id')->comment('流水號');
+            $table->increments('id')->comment('流水號');
             $table->string('name', 60)->comment('學生中文全名');
             $table->date('birthday')->comment('學生出生年月日');
             $table->date('registerDate')->comment('學生註冊日期');
             $table->string('remark', 100)->nullable()->comment('備註');
-            
-            $table->primary('id');
         });
     }
     
