@@ -15,11 +15,9 @@ class CreateStudentCourseGrade extends Migration
     {
         Schema::create('student_course_grade', function ($table) {
             $table->engine = 'InnoDB';
-            $table->integer('studentId');
-            $table->integer('courseId');
+            $table->integer('studentId')->length(10)->unsigned();
+            $table->integer('courseId')->length(10)->unsigned();
             $table->char('gradelevel', 1)->nullable();
-            
-            $table->primary(array('courseId', 'studentId'));
         });
         
         Schema::table('student_course_grade', function ($table) {
