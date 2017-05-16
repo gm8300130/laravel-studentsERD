@@ -8,6 +8,7 @@ use App\Repositories\StudentCourseGradeRepository;
 use App\Repositories\StudentRepository;
 use App\Transformer\StudentERD\StudentCourseGradeTransformer;
 use App\Transformer\StudentERD\StudentTransformer;
+use App\Transformer\StudentERD\GradesCourseOfStudentTransformer;
 
 #TODO Repository, Transformer should be into service
 class StudentErdController extends Controller
@@ -94,3 +95,22 @@ class StudentErdController extends Controller
             return $this->response->errorForbidden('Could not created a student');
         }
     }
+    
+    public function gradesCourseOfStudent()
+    {
+        $student_course_grade = new StudentCourseGradeRepository();
+        
+        $grades_course_of_student = $student_course_grade
+        ->gradesCourseOfStudent()
+        ->get();
+        
+        if ($grades_course_of_student->isEmpty()) {
+            return $this->response->errorForbidden();
+        }
+        
+        return $this->response
+        ->withCollection($grades_course_of_student,
+        new GradesCourseOfStudentTransformer());
+    }
+    
+}

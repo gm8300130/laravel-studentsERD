@@ -28,3 +28,5 @@ Route::any('/v1/students/method/start/{startRowNumber}/limit/{limit}', 'StudentE
 ->where('limit', '[0-9]+');
 
 Route::any('/v1/students/method/create', 'StudentErdController@createStudent');
+
+Route::get('/v1/students/grades/Course_of_Student', 'StudentErdController@gradesCourseOfStudent');
