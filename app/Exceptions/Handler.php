@@ -47,15 +47,15 @@ class Handler extends ExceptionHandler
     {
         if ($exception instanceof CustomException) {
         }
-        if (Request::is('api/*')) {
-            return $this->renderCustomErrorJson($exception);
-        }
         if ($this->isHttpException($exception)) {
+            if (Request::is('api/*')) {
+                return $this->renderCustomErrorJson($exception);
+            }
             return $this->renderCustomErrorPage($exception);
         }
         return parent::render($request, $exception);
     }
-    
+        
     /**
     * Convert an authentication exception into an unauthenticated response.
     *
@@ -71,7 +71,7 @@ class Handler extends ExceptionHandler
         
         return redirect()->guest('login');
     }
-            
+    
     private function renderCustomErrorPage($exceptione)
     {
         $status = $exceptione->getStatusCode();
@@ -86,14 +86,13 @@ class Handler extends ExceptionHandler
                 return response()->view('errors.404', [], $status);
         }
     }
-            
+
     private function renderCustomErrorJson($exceptione)
     {
         $status = $exceptione->getStatusCode();
         return response()->json([
-                'error' => 'No API.',
+                'error' => 'No API or Method Not Allowed',
                 'http_code' => $status
             ], $status);
-
     }
 }
