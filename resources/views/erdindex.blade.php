@@ -50,15 +50,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach ()
-                        <tr>
-                            <td class="text-center">{{}}</td>
-                            <td class="text-center">{{}}</td>
-                            <td class="text-center">{{}}</td>
-                            <td class="text-center">{{}}</td>
-                            <td class="text-center">{{}}</td>
-                        </tr>
-                    @endforeach
+                    
                     </tbody>
                 </table>
             </form>
