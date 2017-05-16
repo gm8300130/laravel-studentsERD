@@ -20,13 +20,13 @@ Route::get('/user', function (Request $request) {
 Route::get('/v1/students/students_course_grade', 'StudentErdController@queryStudentsCourseGrade');
 
 Route::get('/v1/students/{studentId}', 'StudentErdController@queryStudent');
-
+#TODO query 用get
 Route::post('/v1/students/method/query', 'StudentErdController@queryStudentConditions');
 
 Route::any('/v1/students/method/start/{startRowNumber}/limit/{limit}', 'StudentErdController@queryStudentNumberLimit')
 ->where('startRowNumber', '[0-9]+')
 ->where('limit', '[0-9]+');
 
-Route::any('/v1/students/method/create', 'StudentErdController@createStudent');
+Route::post('/v1/students/method/create', 'StudentErdController@createStudent');
 
 Route::get('/v1/students/grades/Course_of_Student', 'StudentErdController@gradesCourseOfStudent');

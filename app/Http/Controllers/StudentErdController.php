@@ -74,7 +74,7 @@ class StudentErdController extends Controller
         return $this->response
         ->withCollection($student, new StudentTransformer());
     }
-    
+    #TODO 用token 取代 timestamp, PUT 可以寫在這裡 
     public function createStudent(Request $request)
     {
         $student_data = $request::only([

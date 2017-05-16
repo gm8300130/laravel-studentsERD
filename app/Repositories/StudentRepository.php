@@ -12,7 +12,7 @@ class StudentRepository
         $this->student = $student;
     }
     
-    static public function getStudent($studentId)
+    static function getStudent($studentId)
     {
         return Student::ofStudentId($studentId)->get();
     }
