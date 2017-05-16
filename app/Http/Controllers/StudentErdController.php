@@ -21,10 +21,10 @@ class StudentErdController extends Controller
     
     public function queryStudentsCourseGrade()
     {
-        $StudentCourseGrade = new StudentCourseGradeRepository();
+        $student_course_grade = new StudentCourseGradeRepository();
         
         return $this->response
-        ->withCollection($StudentCourseGrade->data->get(),
+        ->withCollection($student_course_grade->data->get(),
         new StudentCourseGradeTransformer());
     }
     
@@ -73,4 +73,24 @@ class StudentErdController extends Controller
         return $this->response
         ->withCollection($student, new StudentTransformer());
     }
-}
+    
+    public function createStudent(Request $request)
+    {
+        $student_data = $request::only([
+        'id',
+        'name',
+        'birthday',
+        'register_date',
+        'remark',
+        'timestamp'
+        ]);
+        
+        $StudentRepository = new StudentRepository;
+        $student = $StudentRepository->createStudent($student_data);
+        
+        if ($student) {
+            return $this->response->withItem($student, new  StudentTransformer());
+        } else {
+            return $this->response->errorForbidden('Could not created a student');
+        }
+    }
