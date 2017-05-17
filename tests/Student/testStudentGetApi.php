@@ -7,9 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 #TODO 測試建立資料須獨立DB, 每次重置都不會被就資料干擾
 class TestStudentGetApi extends TestCase
 {
-    use DatabaseMigrations;
-
-    public function testStudentGetResopnse()
+    public function testStudentGetResponse()
     {
         $parameters = '953';
 
@@ -20,7 +18,7 @@ class TestStudentGetApi extends TestCase
         $this->assertGreaterThan(0, count($json));
     }
 
-    public function testStudentConditionsGetResopnse()
+    public function testStudentConditionsGetResponse()
     {
         $parameters = ['register_date' => '1995-03-27'];
 

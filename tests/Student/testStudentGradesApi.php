@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class TestStudentGradesApi extends TestCase
 {
-    public function testStudentGradesCourseOfStudentResopnse()
+    public function testStudentGradesCourseOfStudentResponse()
     {
         $response = $this->call('GET', 'api/v1/students/grades/Course_of_Student');
 
