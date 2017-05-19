@@ -1,24 +1,42 @@
 
-## About This
+# About This
 
-- `clone git@github.com:gm8300130/laravel-studentsERD.git`
+- `git clone git@github.com:gm8300130/laravel-studentsERD.git`
 
-- install Docker
+- [install Docker for Mac](https://docs.docker.com/docker-for-mac/install/)
 
 - docker-compose up -d
 
+- 建立.env, copy .env_example
+
 - composer update
 
-- yarn install
+- yarn install / yarn update
 
-- bower install
+- bower install / bower update
 
 - gulp
 
+- sudo vim /etc/hosts 加入 127.0.0.1:10080 localhost
+
+- Url : http://localhost:10080/
+view :
+![](http://ww4.sinaimg.cn/large/006tNbRwgy1ffqvw234hej315t0idq4n.jpg)
+
+- workspace
+本機沒安裝npm,brower,`php artisan` 之類, 可以進workspace 輸入指令
+![](http://ww4.sinaimg.cn/large/006tNbRwgy1ffqvxlnnnaj30uk0la42h.jpg)
+可改用 `bash`
+
 - DB建立
+新建資料庫 `studenterd`
 `php artisan migrate`
 `php artisan db:seed`
 
-- sudo vim /etc/hosts 加入 127.0.0.1:10080 localhost
 
+## Test
+[Test PR](https://github.com/gm8300130/laravel-studentsERD/pull/5)
+
+`phpunit tests/Student/testStudentGetApi.php`
+`phpunit tests/Student/testStudentGradesApi.php`
 

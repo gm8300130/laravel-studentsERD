@@ -9,7 +9,7 @@ class TestStudentGetApi extends TestCase
 {
     public function testStudentGetResponse()
     {
-        $parameters = '953';
+        $parameters = '3';
 
         $response = $this->call('GET', 'api/v1/students/' . $parameters);
 
@@ -31,7 +31,7 @@ class TestStudentGetApi extends TestCase
 
     public function testStudentNumberLimitResponse()
     {
-        $startNumber = '952';
+        $startNumber = '3';
         $limit = '3';
 
         $response = $this->call('GET', 'api/v1/students/method/start/'
@@ -66,7 +66,7 @@ class TestStudentGetApi extends TestCase
      */
     public function testStudentGetJson()
     {
-        $student_id = '953';
+        $student_id = '3';
         $limit= '3';
 
         $jsonformat =
