@@ -31,6 +31,7 @@ $factory->define(App\Student::class, function (Faker\Generator $faker) {
         'birthday' => $faker->date,
         'registerDate' => $faker->date,
         'remark' => $faker->text(80) ,
+        'timestamp' => time(),
     ];
 });
 
