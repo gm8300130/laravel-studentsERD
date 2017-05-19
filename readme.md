@@ -33,14 +33,14 @@ view :
 
 - DB建立
 新建資料庫 `studenterd`
-`php artisan migrate`
-`php artisan db:seed`
-
+    ```
+    $ php artisan migrate
+    $ php artisan db:seed
+    ```
 ## Test
-[Test PR](https://github.com/gm8300130/laravel-studentsERD/pull/5)
+[Test PR info](https://github.com/gm8300130/laravel-studentsERD/pull/5)
 
-`phpunit tests/Student/testStudentGetApi.php`
-`phpunit tests/Student/testStudentGradesApi.php`
-
-
-
+```
+$ phpunit tests/Student/testStudentGetApi.php
+$ phpunit tests/Student/testStudentGradesApi.php
+```
