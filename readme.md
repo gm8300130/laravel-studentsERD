@@ -9,15 +9,18 @@
 
 - 建立.env, copy .env_example
 
-- composer update
-
-- yarn install / yarn update
-
-- bower install / bower update
-
-- gulp
-
-- sudo vim /etc/hosts 加入 127.0.0.1:10080 localhost
+- cli 輸入以下指令
+    ``` 
+    $ composer update
+    
+    $ yarn install 
+    
+    $ bower install 
+    
+    $ gulp
+    ```
+- 添加localhost 
+`sudo vim /etc/hosts 加入 127.0.0.1:10080 localhost`
 
 - Url : http://localhost:10080/
 view :
@@ -33,10 +36,11 @@ view :
 `php artisan migrate`
 `php artisan db:seed`
 
-
 ## Test
 [Test PR](https://github.com/gm8300130/laravel-studentsERD/pull/5)
 
 `phpunit tests/Student/testStudentGetApi.php`
 `phpunit tests/Student/testStudentGradesApi.php`
+
+
 
