@@ -20,7 +20,6 @@
 - sudo vim /etc/hosts 加入 127.0.0.1:10080 localhost
 
 - Url : http://localhost:10080/
-view :
 ![](http://ww4.sinaimg.cn/large/006tNbRwgy1ffqvw234hej315t0idq4n.jpg)
 
 - workspace
