@@ -1,60 +1,27 @@
 language: php
 
 php:
-  - 5.5
-  - 5.6
   - 7.0
-  - hhvm
+matrix:
+  allow_failures:
+    - php: hhvm
+  fast_finish: true
 
-addons:
-  hosts:
-    - laravelstudenterd  
-
-services:
-  - mysql
-
-mysql:
-  database: studenterd
-  username: root
-  password: password
-  encoding: utf8
-
-install:
-  - composer install --prefer-dist --no-dev --optimize-autoloader
-
-<<<<<<< HEAD
-=======
 branches:
   only:
     - master
-    
->>>>>>> cdc279ae... travis.yml init
 before_script:
-  #make .env
-  - cp .env_example .env
-  - sed -i 's/APP_URL=http:\/\/localhost/APP_URL=http:\/\/laravelstudenterd/g' .env
-  - sed -i 's/DB_DATABASE=homestead/DB_DATABASE=studenterd/g' .env
-  - sed -i 's/DB_USERNAME=homestead/DB_USERNAME=root/g' .env
-  - sed -i 's/DB_PASSWORD=secret/DB_PASSWORD=password/g' .env
-  #
-  - phpenv config-rm xdebug.ini
-  - alias composer=composer\ -n && composer self-update
-  #create database
-  - mysql -uroot -e 'create database studenterd;'
-  #setup laravel app
+  - mysql -e 'create database studentred;'
+  - cp .env.ci.php .env  #copy over CI environment configuration
+  - travis_retry composer self-update
+  - travis_retry composer install --prefer-source --no-interaction --dev
+  - chmod -R 777 storage/
   - php artisan key:generate
-  - php artisan make:auth
   - php artisan migrate
   - php artisan db:seed
-  #insall apache
-  - sudo apt-get update
-  - sudo apt-get install apache2 libapache2-mod-fastcgi
-  #enable php-fpm
-  - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
-  - sudo a2enmod rewrite actions fastcgi alias
-  - echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
-  
+  - php -S localhost:8000 -t public &
+  - sleep 5 # give artisan serve some time to start
+
 notifications:
   email:
     recipients:
