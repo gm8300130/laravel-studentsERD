@@ -1,0 +1,32 @@
+language: php
+
+php:
+  - 7.0
+matrix:
+  allow_failures:
+    - php: hhvm
+  fast_finish: true
+
+branches:
+  only:
+    - master
+before_script:
+  - mysql -e 'create database studenterd;'
+  - cp .env.ci.php .env  #copy over CI environment configuration
+  - travis_retry composer self-update
+  - travis_retry composer install --prefer-source --no-interaction --dev
+  - chmod -R 777 storage/
+  - php artisan key:generate
+  - php artisan migrate
+  - php artisan db:seed
+  - php -S localhost:8000 -t public &
+  - sleep 5 # give artisan serve some time to start
+
+notifications:
+  email:
+    recipients:
+      - gm8300130@gmail.com
+    on_success: always
+    on_failure: always
+
+script: phpunit -c phpunit.xml --coverage-text

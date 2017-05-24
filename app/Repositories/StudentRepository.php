@@ -58,4 +58,11 @@ class StudentRepository
             return $e->message();
         }
     }
+
+    public function getLatest3Posts()
+    {
+        return Student::orderBy('id', 'desc')
+            ->take(3)
+            ->get();
+    }
 }

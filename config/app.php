@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         EllipseSynergie\ApiResponse\Laravel\ResponseServiceProvider::class,
+        Mpociot\LaravelTestFactoryHelper\TestFactoryHelperServiceProvider::class,
 
         /*
          * Application Service Providers...

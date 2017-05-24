@@ -14,7 +14,7 @@ class AddStudentTimestamp extends Migration
     public function up()
     {
         Schema::table('student', function (Blueprint $table) {
-            $table->integer('timestamp')->after('remark');
+            $table->integer('timestamp')->after('remark')->default(0);
         });
     }
     

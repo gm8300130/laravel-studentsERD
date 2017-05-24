@@ -9,15 +9,18 @@
 
 - 建立.env, copy .env_example
 
-- composer update
-
-- yarn install / yarn update
-
-- bower install / bower update
-
-- gulp
-
-- sudo vim /etc/hosts 加入 127.0.0.1:10080 localhost
+- cli 輸入以下指令
+    ``` 
+    $ composer update
+    
+    $ yarn install 
+    
+    $ bower install 
+    
+    $ gulp
+    ```
+- 添加localhost 
+`sudo vim /etc/hosts 加入 127.0.0.1:10080 localhost`
 
 - Url : http://localhost:10080/
 ![](http://ww4.sinaimg.cn/large/006tNbRwgy1ffqvw234hej315t0idq4n.jpg)
@@ -29,13 +32,16 @@
 
 - DB建立
 新建資料庫 `studenterd`
-`php artisan migrate`
-`php artisan db:seed`
-
-
+    ```
+    $ php artisan migrate
+    $ php artisan db:seed
+    ```
 ## Test
-[Test PR](https://github.com/gm8300130/laravel-studentsERD/pull/5)
+[Test PR info](https://github.com/gm8300130/laravel-studentsERD/pull/5)
 
-`phpunit tests/Student/testStudentGetApi.php`
-`phpunit tests/Student/testStudentGradesApi.php`
+```
+$ phpunit tests/Student/testStudentGetApi.php
+$ phpunit tests/Student/testStudentGradesApi.php
+```
+
 
