@@ -37,11 +37,8 @@
     $ php artisan db:seed
     ```
 ## Test
-[Test PR info](https://github.com/gm8300130/laravel-studentsERD/pull/5)
-
-```
-$ phpunit tests/Student/testStudentGetApi.php
-$ phpunit tests/Student/testStudentGradesApi.php
-```
+`./vendor/bin/phpunit`
+或者進workspace
+`root@docker-workspace:/var/www/html/laravel-studentsERD# phpunit`
 
 
