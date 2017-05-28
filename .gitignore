@@ -88,4 +88,4 @@ typings/
 *.css.map
 
 ##### Custom
-
+.vscode/
